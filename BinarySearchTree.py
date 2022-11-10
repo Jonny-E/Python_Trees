@@ -4,8 +4,14 @@ class BinarySearchTree:
         self.left = None
         self.right = None
     
-    def isEmpty(self):
+    def is_empty(self):
         return self.data is False
+
+    def getLeftTree(self):
+        return self.left
+
+    def getRightTree(self):
+        return self.right
 
 
     def insert(self, data):
@@ -25,18 +31,18 @@ class BinarySearchTree:
 
     def search(self, val):
         if val==self.data:
-            return str(val)+" is found"
+            return str(val)
         elif val < self.data:
             if self.left:
                 return self.left.search(val)
             else:
-                return str(val)+" is not found"
+                return None
 
         else:
             if self.right:
                 return self.right.search(val)
             else:
-                return str(val)+" is not found" 
+                return None 
        
 
     def preorder(self):
@@ -73,11 +79,7 @@ root = BinarySearchTree(1)
 root.insert(3)
 root.insert(7)
 root.insert(9)
-root.preorder()
-print("\n")
-root.inorder()
-print("\n")
-root.postorder()
-print(root.isEmpty())
+
+
 
 
