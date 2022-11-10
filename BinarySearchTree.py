@@ -3,6 +3,9 @@ class BinarySearchTree:
         self.data = data
         self.left = None
         self.right = None
+    
+    def isEmpty(self):
+        return self.data is False
 
 
     def insert(self, data):
@@ -37,14 +40,28 @@ class BinarySearchTree:
        
 
     def preorder(self):
+        print( self.data)
         if self.left:
             self.left.preorder()
-        print( self.data)
         if self.right:
             self.right.preorder()
 
     def inorder(self):
-        pass
+        if self.left:
+            self.left.inorder()
+        print( self.data)
+        if self.right:
+            self.right.inorder()
+
+    def postorder(self):
+        if self.left:
+            self.left.postorder()
+        if self.right:
+            self.right.postorder()
+        print( self.data)
+
+
+
 
 
 
@@ -52,16 +69,15 @@ class BinarySearchTree:
 
 
 
-root = BinarySearchTree(27)
-
-root.insert(5)
+root = BinarySearchTree(1)
 root.insert(3)
 root.insert(7)
-root.insert(10)
-root.insert(19)
+root.insert(9)
 root.preorder()
 print("\n")
 root.inorder()
-
+print("\n")
+root.postorder()
+print(root.isEmpty())
 
 
